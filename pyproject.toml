@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "google-cloud-gui"
 version = "1.0.0"
-description = "Google Cloud GUI"
+description = "Google Cloud GUI, manage your Google Cloud resources visually, quickly and conveniently"
 authors = ["Drsanwujiang <drsanwujiang@gmail.com>"]
 license = "MIT"
 readme = "README.md"
