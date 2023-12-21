@@ -1,0 +1,35 @@
+QLineEdit, QTextEdit, QComboBox {{
+  color: white;
+}}
+
+QWidget[heading="1"] {{
+  font-size: 34px;
+}}
+
+QWidget[heading="2"] {{
+  font-size: 30px;
+}}
+
+QWidget[heading="3"] {{
+  font-size: 24px;
+}}
+
+QWidget[heading="4"] {{
+  font-size: 20px;
+}}
+
+QWidget[heading="5"] {{
+  font-size: 18px;
+}}
+
+QWidget[heading="6"] {{
+  font-size: 16px;
+}}
+
+QWidget[font-weight="bold"] {{
+  font-weight: bold;
+}}
+
+QWidget[font-family="Cascadia Code"] {{
+  font-family: "Cascadia Code", "Microsoft YaHei UI", sans-serif;
+}}
