@@ -4,6 +4,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,13 +19,15 @@ jobs:
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
+      - name: Activate virtual environment
+        run: source .venv/scripts/activate
       - name: Install dependencies
         run: poetry install --no-interaction
       - name: Show version
         id: show-version
         run: echo version=$(poetry version --short) >> "$GITHUB_OUTPUT"
       - name: Build bundle
-        run: poetry run pyinstaller main.spec
+        run: pyinstaller main.spec
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
