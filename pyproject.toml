@@ -23,7 +23,7 @@ pyte = "^0.8.2"
 cryptography = "^41.0.7"
 
 [tool.poetry.group.dev.dependencies]
-nuitka = "^1.9.5"
+pyinstaller = "^6.3.0"
 
 [build-system]
 requires = ["poetry-core"]

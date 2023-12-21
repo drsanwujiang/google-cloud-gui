@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
         self.project_id: str | None = None
 
         self.set_theme("dark_blue.xml")
-        self.setWindowIcon(QIcon("images/logo.png"))
+        self.setWindowIcon(QIcon("images/logo.ico"))
         self.setWindowTitle("Google Cloud GUI")
         self.resize(1280, 720)
 

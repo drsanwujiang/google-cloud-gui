@@ -18,7 +18,7 @@ class Window(QWidget):
     def __init__(self, parent: QWidget = None) -> None:
         super().__init__(parent)
 
-        self.setWindowIcon(QIcon("images/logo.png"))
+        self.setWindowIcon(QIcon("images/logo.ico"))
 
     def showEvent(self, event: QShowEvent) -> None:
         super().showEvent(event)
