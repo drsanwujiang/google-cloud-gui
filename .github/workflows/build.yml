@@ -25,7 +25,7 @@ jobs:
         id: show-version
         run: echo version=$(poetry version --short) >> "$GITHUB_OUTPUT"
       - name: Build bundle
-        run: pyinstaller main.spec
+        run: poetry run pyinstaller main.spec
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
