@@ -1,6 +1,11 @@
 name: Build Bundle
 on:
-  [push, release]
+  push:
+    branches:
+      - main
+  release:
+    types:
+      - published
 jobs:
   build:
     runs-on: windows-latest
@@ -26,8 +31,19 @@ jobs:
         run: echo version=$(poetry version --short) >> "$GITHUB_OUTPUT"
       - name: Build bundle
         run: poetry run pyinstaller main.spec
-      - name: Upload artifact
+      - name: Upload bundle to artifact
         uses: actions/upload-artifact@v4
         with:
           name: google-cloud-gui_${{ steps.show-version.outputs.version }}
           path: dist/google-cloud-gui
+      - name: Create release bundle
+        if: ${{ github.event_name == 'release' }}
+        uses: TheDoctor0/zip-release@0.7.6
+        with:
+          filename: google-cloud-gui_${{ steps.show-version.outputs.version }}.zip
+          path: dist/google-cloud-gui
+      - name: Upload bundle to release
+        if: ${{ github.event_name == 'release' }}
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: google-cloud-gui_${{ steps.show-version.outputs.version }}.zip
