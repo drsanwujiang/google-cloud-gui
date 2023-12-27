@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  release:
-    types:
-      - published
 jobs:
   build:
     runs-on: windows-latest
@@ -36,14 +33,3 @@ jobs:
         with:
           name: google-cloud-gui_${{ steps.show-version.outputs.version }}
           path: dist/google-cloud-gui
-      - name: Create release bundle
-        if: ${{ github.event_name == 'release' }}
-        uses: TheDoctor0/zip-release@0.7.6
-        with:
-          filename: google-cloud-gui_${{ steps.show-version.outputs.version }}.zip
-          path: dist/google-cloud-gui
-      - name: Upload bundle to release
-        if: ${{ github.event_name == 'release' }}
-        uses: svenstaro/upload-release-action@v2
-        with:
-          file: google-cloud-gui_${{ steps.show-version.outputs.version }}.zip
